@@ -5,11 +5,6 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=0,maximum-scale=10,user-scalable=yes">
 <title>Ruffle Test</title>
 <script src="./ruffle/ruffle.js"></script>
-<script>
-window.RufflePlayer.config = {
-    autoplay: "auto"
-};
-</script>  
 <style>
 html, body{
   margin:0;
@@ -30,6 +25,7 @@ html, body{
 <param name="movie" value="./tetris.swf" />
 <param name='wmode' value='transparent' />
 <param name='allowScriptAccess' value='always' />
+<param name="flashvars" value="autoPlay=true" />    
 </object>
 </body>
 </html>
