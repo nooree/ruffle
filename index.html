@@ -6,10 +6,17 @@
 <title>Ruffle Test</title>
 <script src="./ruffle/ruffle.js"></script>
 <script>
-  window.RufflePlayer = window.RufflePlayer || {};
-  window.RufflePlayer.config = {
-  "autoplay": "auto"
-  }
+var swfobject = {};
+swfobject.embedSWF = function(url, cont, width, height){
+var ruffle = window.RufflePlayer.newest(),
+    player = Object.assign(document.getElementById(cont).appendChild(ruffle.createPlayer()), {
+        width: width,
+        height: height,
+        style: 'width: ' + width + '%; height: ' + height + '%',
+    });
+player.load({ url: url });
+}
+swfobject.embedSWF('./tetris.swf', 'ruffle', 100, 100);
 </script>
 <style>
 html, body{
@@ -27,11 +34,6 @@ html, body{
 </style>
 </head>
 <body>
-<object type="application/x-shockwave-flash" data="./tetris.swf" id="RufflePlayer">
-<param name="movie" value="./tetris.swf" />
-<param name='wmode' value='transparent' />
-<param name='allowScriptAccess' value='always' />
-<param name="flashvars" value="autoPlay=true" />    
-</object>
+<div id='RufflePlayer'></div>
 </body>
 </html>
